@@ -14,7 +14,7 @@ qt_add_executable(miniSerialMonitor
     serial.h serial.cpp
     icons.qrc
     csv_save.h csv_save.cpp
-    breeze.qrc
+
     settings.h settings.cpp settings.ui
 )
 
