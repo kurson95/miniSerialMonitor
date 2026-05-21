@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=miniSerialMonitor
+Exec=miniSerialMonitor
+Icon=icon
+Categories=Development;
+StartupWMClass=miniSerialMonitor
+X-AppImage-Version=0.3
+X-AppImage-Name=miniSerialMonitor
