@@ -52,3 +52,19 @@ qt_add_resources(miniSerialMonitor "resources"
         icons/document-save.svg
         icons/view-refresh.svg
 )
+
+# Add this at the end of your CMakeLists.txt file
+
+# Specify the generator for Debian packages
+set(CPACK_GENERATOR "DEB")
+
+# Set basic package information
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Kubara <kurson95@proton.me>")
+set(CPACK_PACKAGE_NAME "miniSerialMonitor")
+set(CPACK_PACKAGE_VERSION "0.3")
+
+# Set the installation path for the executable
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+# Finalize CPack configuration
+include(CPack)
