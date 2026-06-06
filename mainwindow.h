@@ -9,6 +9,8 @@
 #include <QDateTime>
 #include "serial.h"
 #include "csv_save.h"
+#include "aboutdialog.h"
+#include "version.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -50,10 +52,15 @@ private slots:
 
     void on_save_csv_btn_clicked();
 
+    void on_actionAbout_triggered();
+
+    void on_actionToggle_config_triggered();
+
 private:
     Ui::MainWindow *ui;
     const QString suffix;
     bool enableEcho = true;
     bool enabletimestamp = false;
+    bool hideConfigPanel = false;
 };
 #endif // MAINWINDOW_H

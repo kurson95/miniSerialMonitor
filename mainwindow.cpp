@@ -190,3 +190,22 @@ void MainWindow::on_save_csv_btn_clicked()
         }
     }}
 
+
+void MainWindow::on_actionAbout_triggered()
+{
+    AboutDialog about;
+    about.setWindowTitle("About miniSerialMonitor");
+    about.exec();
+}
+
+
+void MainWindow::on_actionToggle_config_triggered()
+{
+    hideConfigPanel = !hideConfigPanel;
+    if(hideConfigPanel){
+        ui->conf->hide();
+    }else{
+        ui->conf->show();
+    }
+}
+

@@ -12,10 +12,13 @@ qt_add_executable(miniSerialMonitor
     mainwindow.h
     mainwindow.ui
     serial.h serial.cpp
-    icons.qrc
-    csv_save.h csv_save.cpp
 
-    settings.h settings.cpp settings.ui
+    csv_save.h csv_save.cpp
+    aboutdialog.h aboutdialog.cpp aboutdialog.ui
+
+    version.h
+
+
 )
 
 target_link_libraries(miniSerialMonitor
@@ -51,6 +54,8 @@ qt_add_resources(miniSerialMonitor "resources"
     FILES
         icons/document-save.svg
         icons/view-refresh.svg
+        icon.png
+        LICENSE
 )
 
 # Add this at the end of your CMakeLists.txt file
@@ -60,7 +65,7 @@ qt_add_resources(miniSerialMonitor "resources"
 # Set basic package information
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Kubara <kurson95@proton.me>")
 set(CPACK_PACKAGE_NAME "miniSerialMonitor")
-set(CPACK_PACKAGE_VERSION "0.3")
+set(CPACK_PACKAGE_VERSION "0.3.1")
 
 if(EXISTS "/etc/os-release")
     file(READ "/etc/os-release" OS_RELEASE_CONTENT)
@@ -68,7 +73,12 @@ if(EXISTS "/etc/os-release")
     # Check if the environment is Debian or Ubuntu based
     if(OS_RELEASE_CONTENT MATCHES "ID=ubuntu" OR OS_RELEASE_CONTENT MATCHES "ID=debian" OR OS_RELEASE_CONTENT MATCHES "ID_LIKE=.*debian.*")
         message(STATUS "Detected Debian/Ubuntu system. Configuring CPack for .deb package.")
+        if(OS_RELEASE_CONTENT MATCHES "VERSION_ID=\"([0-9.]+)\"")
+                set(UBUNTU_VERSION ${CMAKE_MATCH_1})
 
+                # Modify the CPack system name
+                set(CPACK_SYSTEM_NAME "ubuntu${UBUNTU_VERSION}-${CMAKE_SYSTEM_PROCESSOR}")
+            endif()
         set(CPACK_GENERATOR "DEB")
         set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON) # Auto-detect shared library dependencies
 

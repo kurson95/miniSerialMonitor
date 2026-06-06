@@ -257,7 +257,7 @@
              <string>Enable timestamp</string>
             </property>
             <property name="checked">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="autoExclusive">
              <bool>false</bool>
@@ -427,10 +427,12 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionRefresh_ports"/>
+   <addaction name="actionAbout"/>
+   <addaction name="actionToggle_config"/>
   </widget>
   <action name="actionRefresh_ports">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset theme="QIcon::ThemeIcon::ViewRefresh" resource="build/Desktop-Release/.qt/rcc/resources.qrc">
      <normaloff>:/icons/view-refresh.svg</normaloff>:/icons/view-refresh.svg</iconset>
    </property>
    <property name="text">
@@ -443,9 +445,37 @@
     <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="toolTip">
+    <string>About miniSerialMonitor</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionToggle_config">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::ViewRestore"/>
+   </property>
+   <property name="text">
+    <string>Toggle config</string>
+   </property>
+   <property name="toolTip">
+    <string>Show/hide config panel</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="build/Desktop-Release/.qt/rcc/resources.qrc"/>
  </resources>
  <connections/>
 </ui>
