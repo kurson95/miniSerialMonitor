@@ -48,4 +48,4 @@ cmake ..
 make
 ```
 
-You can also download precompiled appimage from releases.
+You can also download precompiled appimage from [release](https://github.com/kurson95/miniSerialMonitor/tags) page
